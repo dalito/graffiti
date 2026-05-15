@@ -57,15 +57,26 @@
     --fw-semibold: 600;
     --fw-bold: 700;
 
-    /* Shadows - Layered, adaptive shadows with light/dark mode support */
-    --shadow-1: 0 0 1px 0.5px rgb(0 0 0 / 0.05), 0 2px 2px rgb(0 0 0 / 0.1);
-    --shadow-2: 0 1px 1px 2px rgb(0 0 0 / 0.03), 0 4px 4px rgb(0 0 0 / 0.1);
-    --shadow-3: 0 2px 4px rgb(0 0 0 / 0.05), 0 4px 8px rgb(0 0 0 / 0.1);
-    --shadow-4: 0 4px 8px rgb(0 0 0 / 0.06), 0 8px 16px rgb(0 0 0 / 0.12);
-    --shadow-5: 0 8px 16px rgb(0 0 0 / 0.08), 0 12px 24px rgb(0 0 0 / 0.14);
+    /* Shadows */
+    --shadow-1:
+      0 0 1px 0.5px light-dark(rgb(0 0 0 / 0.05), rgb(0 0 0 / 0.5)),
+      0 2px 2px light-dark(rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.3));
+    --shadow-2:
+      0 1px 1px 2px light-dark(rgb(0 0 0 / 0.03), rgb(0 0 0 / 0.6)),
+      0 4px 4px light-dark(rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.4));
+    --shadow-3:
+      0 2px 4px light-dark(rgb(0 0 0 / 0.05), rgb(0 0 0 / 0.65)),
+      0 4px 8px light-dark(rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.45));
+    --shadow-4:
+      0 4px 8px light-dark(rgb(0 0 0 / 0.06), rgb(0 0 0 / 0.7)),
+      0 8px 16px light-dark(rgb(0 0 0 / 0.12), rgb(0 0 0 / 0.5));
+    --shadow-5:
+      0 8px 16px light-dark(rgb(0 0 0 / 0.08), rgb(0 0 0 / 0.75)),
+      0 12px 24px light-dark(rgb(0 0 0 / 0.14), rgb(0 0 0 / 0.55));
     --shadow-6:
-      0 12px 24px rgb(0 0 0 / 0.1), 0 16px 32px rgb(0 0 0 / 0.16),
-      0 24px 48px rgb(0 0 0 / 0.18);
+      0 12px 24px light-dark(rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.8)),
+      0 16px 32px light-dark(rgb(0 0 0 / 0.16), rgb(0 0 0 / 0.6)),
+      0 24px 48px light-dark(rgb(0 0 0 / 0.18), rgb(0 0 0 / 0.5));
 
     --box:
       0 1px 2px rgb(0 0 0 / 0.04), inset -1px 1px 2px rgb(255 255 255 / 0.1),
@@ -385,6 +396,7 @@
     );
 
     --primary: var(--blue);
+    --accent: var(--primary);
     --error: var(--red);
     --warning: var(--yellow);
     --success: var(--green);
@@ -721,7 +733,7 @@
     }
 
     &:disabled {
-      opacity: 0.5;
+      opacity: 0.65;
       cursor: not-allowed;
     }
 
@@ -732,6 +744,7 @@
 
     &.mini {
       --fl: -1;
+      min-block-size: 24px;
       padding: 3px var(--pad-m);
       gap: 0.35em;
       border-radius: var(--br-s);
@@ -964,6 +977,10 @@
       outline: 2px solid var(--fg);
       outline-offset: 2px;
     }
+  }
+
+  textarea {
+    field-sizing: content;
   }
 
   input,
@@ -1704,28 +1721,12 @@
     text-wrap: balance;
   }
 
+  :where(p, li, blockquote) {
+    text-wrap: pretty;
+  }
+
   /* END LAYOUTS */
 } /* END @layer layouts */
-
-/* Dark mode shadow overrides - Deeper, more intense shadows (unlayered for priority) */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --shadow-1: 0 1px 2px rgb(0 0 0 / 0.5), 0 2px 4px rgb(0 0 0 / 0.3);
-    --shadow-2: 0 2px 4px rgb(0 0 0 / 0.6), 0 4px 8px rgb(0 0 0 / 0.4);
-    --shadow-3:
-      0 4px 8px rgb(0 0 0 / 0.65), 0 8px 16px rgb(0 0 0 / 0.45),
-      0 2px 4px rgb(0 0 0 / 0.3);
-    --shadow-4:
-      0 6px 12px rgb(0 0 0 / 0.7), 0 12px 24px rgb(0 0 0 / 0.5),
-      0 3px 6px rgb(0 0 0 / 0.35);
-    --shadow-5:
-      0 10px 20px rgb(0 0 0 / 0.75), 0 16px 32px rgb(0 0 0 / 0.55),
-      0 4px 8px rgb(0 0 0 / 0.4);
-    --shadow-6:
-      0 16px 32px rgb(0 0 0 / 0.8), 0 24px 48px rgb(0 0 0 / 0.6),
-      0 32px 64px rgb(0 0 0 / 0.5), 0 6px 12px rgb(0 0 0 / 0.45);
-  }
-}
 
 @layer components {
   /* COMPONENTS */
@@ -2103,6 +2104,10 @@
     }
   }
 
+  .table.zebra tbody tr:nth-child(even) {
+    background-color: var(--fg-05);
+  }
+
   /*Forms*/
 
   input,
@@ -2140,7 +2145,7 @@
 
   select {
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right var(--pad-m) center;
     padding-inline-end: calc(var(--pad-m) + 1.5em);
@@ -2158,12 +2163,8 @@
     }
 
     &:disabled {
-      opacity: 0.5;
+      opacity: 0.65;
       cursor: not-allowed;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
     }
   }
 
@@ -3292,7 +3293,7 @@
 
       &[aria-disabled="true"],
       &.disabled {
-        opacity: 0.5;
+        opacity: 0.65;
         cursor: not-allowed;
         pointer-events: none;
       }
@@ -3540,7 +3541,7 @@
 
     /* Disabled state */
     &:disabled {
-      opacity: 0.5;
+      opacity: 0.65;
       cursor: not-allowed;
     }
 
@@ -3853,7 +3854,7 @@
     /* Disabled state */
     &:disabled,
     &[aria-disabled="true"] {
-      opacity: 0.5;
+      opacity: 0.65;
       cursor: not-allowed;
       pointer-events: none;
     }
@@ -4084,7 +4085,7 @@
 
       /* Disabled state */
       &:is([aria-disabled="true"], :disabled, .disabled) {
-        opacity: 0.5;
+        opacity: 0.65;
         cursor: not-allowed;
         pointer-events: none;
       }
