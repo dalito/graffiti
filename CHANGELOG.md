@@ -1,5 +1,11 @@
 # @drop-in/graffiti
 
+## 4.24.10
+
+### Patch Changes
+
+- Replace `min-height: 100vh` with `100dvh` on `html`, `body`, and `body > .body-fill` so root-level layout stops jumping when mobile browser UI (address bar) appears or disappears.
+
 ## 4.24.9
 
 ### Patch Changes
