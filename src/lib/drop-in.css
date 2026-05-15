@@ -401,6 +401,11 @@
     --warning: var(--yellow);
     --success: var(--green);
 
+    /* Focus ring tokens — consumed by base, components, and utilities */
+    --focus-ring: 2px solid var(--fg);
+    --focus-ring-offset: 2px;
+    --focus-ring-offset-inset: -2px;
+
     /* Primary scale */
     --primary-1: oklch(from var(--primary) l c h / 0.1);
     --primary-2: oklch(from var(--primary) l c h / 0.2);
@@ -972,11 +977,12 @@
     }
   }
 
-  a {
-    &:focus-visible {
-      outline: 2px solid var(--fg);
-      outline-offset: 2px;
-    }
+  /* Shared focus ring for base interactive elements.
+     Uses :where() so component-layer rules can override without
+     specificity wars. Modifier states below override outline-color only. */
+  :where(a, input, textarea, select):focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
   }
 
   textarea {
@@ -986,10 +992,6 @@
   input,
   textarea,
   select {
-    &:focus-visible {
-      outline: 2px solid var(--fg);
-      outline-offset: 2px;
-    }
     &[aria-invalid="true"],
     &.error {
       border-color: var(--red-6);
@@ -1213,13 +1215,13 @@
 
   /* Focus Ring - Consistent focus styling utility */
   .focus-ring:focus-visible {
-    outline: 2px solid var(--fg);
-    outline-offset: 2px;
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
   }
 
   .focus-ring-inset:focus-visible {
-    outline: 2px solid var(--fg);
-    outline-offset: -2px;
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset-inset);
   }
 
   /* Transition Utilities - Use the easing tokens */

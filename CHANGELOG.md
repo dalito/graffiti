@@ -1,5 +1,17 @@
 # @drop-in/graffiti
 
+## 4.24.1
+
+### Patch Changes
+
+- Fix focus rings on buttons, tags, and dialog elements by defining the previously-undefined `--focus-ring`, `--focus-ring-offset`, and `--focus-ring-offset-inset` tokens in `:root`. Collapses duplicate base-layer `:focus-visible` rules to use the tokens.
+
+## 4.24.0
+
+### Minor Changes
+
+- Add `.table.zebra` variant that stripes even `tbody` rows with `var(--fg-05)`.
+
 ## 4.23.4
 
 ### Patch Changes
