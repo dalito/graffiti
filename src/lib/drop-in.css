@@ -950,20 +950,93 @@
     &.dark {
       --button-color: light-dark(#222, #fff);
       --button-text: light-dark(var(--white), var(--black));
+
+      /* Dark surface in both schemes. light-dark resolves --button-color to a
+         near-black or near-white anchor; we mix it heavily toward black either
+         way to get a stable dark surface. */
+      --button-bg-top: color-mix(in oklab, var(--button-color) 22%, black);
+      --button-bg-bottom: color-mix(in oklab, var(--button-color) 30%, black);
+      --button-border: color-mix(in oklab, var(--button-color) 50%, black);
+      --button-shadow: color-mix(in oklab, black 80%, transparent);
+
+      &:hover {
+        --button-bg-top: color-mix(in oklab, var(--button-color) 32%, black);
+        --button-bg-bottom: color-mix(in oklab, var(--button-color) 40%, black);
+      }
+
+      &:active {
+        --button-bg-top: color-mix(in oklab, var(--button-color) 14%, black);
+        --button-bg-bottom: color-mix(in oklab, var(--button-color) 22%, black);
+      }
     }
 
     &.light {
       --button-color: light-dark(#fff, #fafafa);
       --button-text: var(--black);
-      --button-border: light-dark(
-        color-mix(in oklab, var(--button-color) 40%, var(--fg)),
-        color-mix(in oklab, var(--button-color) 40%, var(--fg))
-      );
+
+      --button-bg-top: color-mix(in oklab, var(--button-color) 96%, black);
+      --button-bg-bottom: var(--button-color);
+      --button-border: color-mix(in oklab, var(--button-color) 60%, var(--fg));
+      --button-shadow: color-mix(in oklab, black 12%, transparent);
+
+      &:hover {
+        --button-bg-top: color-mix(in oklab, var(--button-color) 92%, black);
+        --button-bg-bottom: color-mix(in oklab, var(--button-color) 98%, black);
+      }
+
+      &:active {
+        --button-bg-top: color-mix(in oklab, var(--button-color) 85%, black);
+        --button-bg-bottom: color-mix(in oklab, var(--button-color) 90%, black);
+      }
     }
 
     &.contrast {
       --button-color: var(--fg);
       --button-text: var(--bg);
+
+      /* light-dark gates here are because the gradient direction differs:
+         in light mode the surface is DARK (mix toward black to keep it dark),
+         in dark mode the surface is LIGHT (mix toward black still works
+         because --button-color is already #fff and 90% white + 10% black =
+         light gray). */
+      --button-bg-top: light-dark(
+        color-mix(in oklab, var(--button-color) 22%, black),
+        color-mix(in oklab, var(--button-color) 96%, black)
+      );
+      --button-bg-bottom: light-dark(
+        color-mix(in oklab, var(--button-color) 30%, black),
+        color-mix(in oklab, var(--button-color) 100%, transparent)
+      );
+      --button-border: light-dark(
+        color-mix(in oklab, var(--button-color) 50%, black),
+        color-mix(in oklab, var(--button-color) 70%, black)
+      );
+      --button-shadow: light-dark(
+        color-mix(in oklab, black 75%, transparent),
+        color-mix(in oklab, black 15%, transparent)
+      );
+
+      &:hover {
+        --button-bg-top: light-dark(
+          color-mix(in oklab, var(--button-color) 32%, black),
+          color-mix(in oklab, var(--button-color) 90%, black)
+        );
+        --button-bg-bottom: light-dark(
+          color-mix(in oklab, var(--button-color) 40%, black),
+          color-mix(in oklab, var(--button-color) 96%, black)
+        );
+      }
+
+      &:active {
+        --button-bg-top: light-dark(
+          color-mix(in oklab, var(--button-color) 14%, black),
+          color-mix(in oklab, var(--button-color) 80%, black)
+        );
+        --button-bg-bottom: light-dark(
+          color-mix(in oklab, var(--button-color) 22%, black),
+          color-mix(in oklab, var(--button-color) 90%, black)
+        );
+      }
     }
 
     &.ghost {

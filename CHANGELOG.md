@@ -1,5 +1,11 @@
 # @drop-in/graffiti
 
+## 4.24.7
+
+### Patch Changes
+
+- Tune `.dark`, `.light`, `.contrast` button variants to use high color-mix percentages so the surface stays solid. The previous neutral-base mix percentages (18%/28%) washed out variants whose `--button-color` is a strong anchor (`#fff`, `var(--fg)`).
+
 ## 4.24.6
 
 ### Patch Changes
