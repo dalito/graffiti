@@ -15,6 +15,17 @@
     "./standard": "./dist/standard.css",
     "./decks": "./dist/decks.css",
     "./decks.css": "./dist/decks.css",
+    "./themes": "./dist/themes/index.css",
+    "./themes/editorial": "./dist/themes/editorial.css",
+    "./themes/paper": "./dist/themes/paper.css",
+    "./themes/brutalist": "./dist/themes/brutalist.css",
+    "./themes/neon-arcade": "./dist/themes/neon-arcade.css",
+    "./themes/soft-consumer": "./dist/themes/soft-consumer.css",
+    "./themes/editorial/raw": "./dist/themes/editorial-raw.js",
+    "./themes/paper/raw": "./dist/themes/paper-raw.js",
+    "./themes/brutalist/raw": "./dist/themes/brutalist-raw.js",
+    "./themes/neon-arcade/raw": "./dist/themes/neon-arcade-raw.js",
+    "./themes/soft-consumer/raw": "./dist/themes/soft-consumer-raw.js",
     "./svelte": "./dist/svelte.js"
   },
   "files": [
@@ -40,7 +51,7 @@
     "package": "node scripts/derive-mirror.mjs && svelte-kit sync && svelte-package && node build-modules.js"
   },
   "type": "module",
-  "version": "4.24.15",
+  "version": "4.25.0",
   "publishConfig": {
     "access": "public",
     "directory": "."

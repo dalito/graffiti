@@ -1,0 +1,74 @@
+/**
+ * .theme-brutalist — raw, high-contrast, structural
+ *
+ * Pure black + pure white. Highlighter-yellow primary. Chunky borders.
+ * Zero radii. Hard offset shadows (Memphis-style, no blur). Uppercase
+ * headings with tight tracking and Big Shoulders display face. Loud
+ * selection. Designed to look like a manifesto poster, not a SaaS app.
+ *
+ * Stress-tests: thick border tokens (uses 3px+, exceeding --border-1/2's
+ * 1/2px), no-blur offset-shadow pattern (currently only blurred shadows
+ * exist in framework).
+ */
+
+:root.theme-brutalist,
+.theme-brutalist {
+  /* Type — clean sans body, condensed display for headings via selector */
+  --font-sans: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-ratio-min: 1.25;
+  --font-ratio-max: 1.5;
+  --fw-medium: 600;
+  --fw-semibold: 800;
+  --fw-bold: 900;
+
+  /* Color — pure contrast + highlighter accent */
+  --bg-light: #ffffff;
+  --bg-dark: #000000;
+  --fg-light: #000000;
+  --fg-dark: #ffffff;
+  --primary: #ffec00;
+  --accent: var(--primary);
+
+  /* Surfaces — zero radii, hard offset shadows */
+  --br-xs: 0;
+  --br-s: 0;
+  --br-m: 0;
+  --br-l: 0;
+  --br-xl: 0;
+  --br-xxl: 0;
+
+  --border-1: solid 3px var(--fg);
+  --border-2: solid 5px var(--fg);
+
+  --shadow-1: 3px 3px 0 0 var(--fg);
+  --shadow-2: 5px 5px 0 0 var(--fg);
+  --shadow-3: 8px 8px 0 0 var(--fg);
+  --shadow-4: 10px 10px 0 0 var(--fg);
+  --shadow-5: 12px 12px 0 0 var(--fg);
+  --shadow-6: 16px 16px 0 0 var(--fg);
+
+  --focus-ring: 4px solid var(--primary);
+  --focus-ring-offset: 0;
+}
+
+/* Character treatments — display face for headings, loud selection. */
+@layer themes {
+  .theme-brutalist :is(h1, h2, h3) {
+    font-family: "Big Shoulders Display", Impact, "Arial Narrow", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    font-weight: 900;
+    line-height: 0.95;
+  }
+
+  .theme-brutalist ::selection {
+    background: var(--primary);
+    color: var(--bg);
+  }
+
+  .theme-brutalist a {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.15em;
+  }
+}

@@ -22,10 +22,22 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = join(__dirname, "dist");
 const SOURCE = join(__dirname, "src", "lib", "drop-in.css");
 const DECKS_SOURCE = join(__dirname, "src", "lib", "decks.css");
+const THEMES_SOURCE = join(__dirname, "src", "lib", "themes");
+const THEMES_DIST = join(DIST, "themes");
+const THEME_NAMES = [
+  "editorial",
+  "paper",
+  "brutalist",
+  "neon-arcade",
+  "soft-consumer",
+];
 
 // Ensure dist/ exists
 if (!existsSync(DIST)) {
   mkdirSync(DIST, { recursive: true });
+}
+if (!existsSync(THEMES_DIST)) {
+  mkdirSync(THEMES_DIST, { recursive: true });
 }
 
 const source = readFileSync(SOURCE, "utf-8");
@@ -283,6 +295,30 @@ if (existsSync(DECKS_SOURCE)) {
   console.log("  dist/decks.css");
 } else {
   console.warn("  Warning: src/lib/decks.css not found, skipping decks.css");
+}
+
+// themes/* - Copy each preset and the index, plus emit raw JS modules.
+for (const name of THEME_NAMES) {
+  const srcPath = join(THEMES_SOURCE, `${name}.css`);
+  if (!existsSync(srcPath)) {
+    console.warn(`  Warning: themes/${name}.css not found, skipping`);
+    continue;
+  }
+  const css = readFileSync(srcPath, "utf-8");
+  writeFileSync(join(THEMES_DIST, `${name}.css`), css);
+  writeFileSync(
+    join(THEMES_DIST, `${name}-raw.js`),
+    `// Auto-generated from src/lib/themes/${name}.css\nexport default ${JSON.stringify(css)};\n`,
+  );
+  console.log(`  dist/themes/${name}.css`);
+}
+const themesIndexSource = join(THEMES_SOURCE, "index.css");
+if (existsSync(themesIndexSource)) {
+  writeFileSync(
+    join(THEMES_DIST, "index.css"),
+    readFileSync(themesIndexSource, "utf-8"),
+  );
+  console.log("  dist/themes/index.css");
 }
 
 console.log("\nBuild complete!");

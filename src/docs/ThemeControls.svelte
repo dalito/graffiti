@@ -437,6 +437,16 @@
       value: "'SF Mono', Monaco, 'Cascadia Code', 'Courier New', monospace",
       google: "",
     },
+    {
+      name: "Fraunces",
+      value: "'Fraunces', Georgia, serif",
+      google: "Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1",
+    },
+    {
+      name: "Big Shoulders Display",
+      value: "'Big Shoulders Display', Impact, sans-serif",
+      google: "Big+Shoulders+Display:wght@100..900",
+    },
   ];
 </script>
 

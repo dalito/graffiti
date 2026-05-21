@@ -1,0 +1,82 @@
+/**
+ * .theme-neon-arcade — synthwave / cyberpunk
+ *
+ * Dark magenta-tinted surfaces in both color schemes (the theme is dark by
+ * nature — no light-mode variant would feel right). Neon magenta primary,
+ * cyan accent. Big Shoulders Display headlines, tight tracking. Glow
+ * shadows replace the framework's physical drop-shadow scale. Slight radii
+ * for sharpness. Designed to feel like an arcade marquee.
+ *
+ * Stress-tests: glow-shadow pattern (currently no --glow-* tokens in
+ * framework), dark-only aesthetic (the framework's light-dark() assumes
+ * both schemes are first-class), accent + primary as paired neons.
+ */
+
+:root.theme-neon-arcade,
+.theme-neon-arcade {
+  /* Type — clean sans body, display-condensed for headings via selector */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-ratio-min: 1.25;
+  --font-ratio-max: 1.414;
+  --fw-bold: 800;
+
+  /* Color — dark in both modes, neon primary + cyan accent */
+  --bg-light: #1a0d24;
+  --bg-dark: #0c0612;
+  --fg-light: #f4e8ff;
+  --fg-dark: #f4e8ff;
+  --primary: #ff00d4;
+  --accent: #00f0ff;
+  --error: #ff3355;
+  --success: #00ff88;
+
+  /* Surfaces — sharp radii, glow shadows */
+  --br-xs: 0;
+  --br-s: 2px;
+  --br-m: 2px;
+  --br-l: 4px;
+  --br-xl: 4px;
+  --br-xxl: 6px;
+
+  --shadow-1: 0 0 8px oklch(from var(--primary) l c h / 0.5);
+  --shadow-2:
+    0 0 12px oklch(from var(--primary) l c h / 0.6),
+    0 0 24px oklch(from var(--primary) l c h / 0.3);
+  --shadow-3:
+    0 0 16px oklch(from var(--primary) l c h / 0.7),
+    0 0 32px oklch(from var(--primary) l c h / 0.4);
+  --shadow-4:
+    0 0 20px oklch(from var(--accent) l c h / 0.7),
+    0 0 40px oklch(from var(--accent) l c h / 0.4);
+  --shadow-5:
+    0 0 24px oklch(from var(--primary) l c h / 0.8),
+    0 0 48px oklch(from var(--accent) l c h / 0.5);
+  --shadow-6:
+    0 0 32px oklch(from var(--primary) l c h / 0.9),
+    0 0 64px oklch(from var(--accent) l c h / 0.5);
+
+  --focus-ring: 2px solid var(--accent);
+}
+
+/* Character treatments — display headlines, neon selection, glow on links. */
+@layer themes {
+  .theme-neon-arcade :is(h1, h2, h3, h4, h5, h6) {
+    font-family: "Big Shoulders Display", Impact, "Arial Narrow", sans-serif;
+    letter-spacing: -0.01em;
+    font-weight: 800;
+    line-height: 1.05;
+    text-shadow: 0 0 12px oklch(from var(--primary) l c h / 0.6);
+  }
+
+  .theme-neon-arcade ::selection {
+    background: var(--primary);
+    color: var(--bg);
+  }
+
+  .theme-neon-arcade a {
+    color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    text-shadow: 0 0 6px oklch(from var(--accent) l c h / 0.5);
+  }
+}

@@ -29,6 +29,19 @@ import "@drop-in/graffiti/components"; // UI components
 
 // Optionally import decks component styles separately
 import "@drop-in/graffiti/decks";
+
+// Optionally import aesthetic presets (apply as a class on any container)
+import "@drop-in/graffiti/themes"; // all five presets
+// or tree-shake to a single preset
+import "@drop-in/graffiti/themes/editorial"; // also: paper, brutalist, neon-arcade, soft-consumer
+```
+
+Apply a preset via class on `:root`, `html`, or any container element:
+
+```html
+<html class="theme-editorial">...</html>
+
+<section class="theme-brutalist">...</section>
 ```
 
 ### Copy & Paste

@@ -229,6 +229,12 @@
           href="/templates">Templates</a
         >
         <a
+          aria-current={page.url.pathname.startsWith("/themes")
+            ? "page"
+            : null}
+          href="/themes">Themes</a
+        >
+        <a
           aria-current={page.url.pathname.startsWith("/changelog")
             ? "page"
             : null}
@@ -256,6 +262,7 @@
         <a href="/utilities">Utilities</a>
         <a href="/elements">Elements</a>
         <a href="/ui-blocks">UI Blocks</a>
+        <a href="/themes">Themes</a>
       </nav>
       <nav class="stack">
         <strong>Resources</strong>

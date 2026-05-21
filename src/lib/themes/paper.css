@@ -1,0 +1,69 @@
+/**
+ * .theme-paper — printable document, manuscript feel
+ *
+ * Warm off-white paper in light mode, dark sepia in dark mode. Serif body for
+ * document fidelity. Modest type scale. No shadows. Hard edges (no radii).
+ * Printed-style link underlines. Designed for memos, reports, documentation
+ * that should feel page-like.
+ *
+ * Stress-tests: shadow restraint (every --shadow-* set to none), zero-radius
+ * edge case, serif typography in dark mode.
+ */
+
+:root.theme-paper,
+.theme-paper {
+  /* Type — serif, modest */
+  --font-sans: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-ratio-min: 1.2;
+  --font-ratio-max: 1.25;
+  --lh: 1.55;
+  --lh-l: 1.7;
+
+  /* Color — warm paper / dark sepia, deep olive primary */
+  --bg-light: #fdfaf2;
+  --bg-dark: #26221a;
+  --fg-light: #1f1a14;
+  --fg-dark: #e8e0cc;
+  --primary: #3a4a1c;
+  --accent: var(--primary);
+
+  /* Surfaces — hard edges, no shadow */
+  --br-xs: 0;
+  --br-s: 0;
+  --br-m: 0;
+  --br-l: 0;
+  --br-xl: 0;
+  --br-xxl: 0;
+
+  --shadow-1: none;
+  --shadow-2: none;
+  --shadow-3: none;
+  --shadow-4: none;
+  --shadow-5: none;
+  --shadow-6: none;
+}
+
+/* Character treatments — print conventions and serif-friendly headings. */
+@layer themes {
+  .theme-paper {
+    font-feature-settings: "kern", "liga", "onum", "pnum";
+  }
+
+  .theme-paper :is(h1, h2, h3, h4, h5, h6) {
+    letter-spacing: normal;
+    font-feature-settings: "kern", "liga", "lnum";
+  }
+
+  .theme-paper a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  /* Printed-document quote treatment */
+  .theme-paper blockquote {
+    border-inline-start: 2px solid var(--fg-3);
+    padding-inline-start: var(--pad-l);
+    font-style: italic;
+  }
+}

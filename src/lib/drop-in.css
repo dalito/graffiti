@@ -1,5 +1,7 @@
 /* Cascade Layers - Ordered from lowest to highest priority */
-@layer base, components, utilities, layouts;
+/* `themes` slots between base and components per ADR-0003 so aesthetic
+   presets can re-skin base elements without outranking component contracts. */
+@layer base, themes, components, utilities, layouts;
 
 @layer base {
   /* Non-inheriting custom properties */
@@ -1314,6 +1316,15 @@
   select {
     --fl: 0;
     line-height: var(--lh);
+  }
+
+  /* Form elements don't inherit font-family by default — restore inheritance
+     so theme presets that swap --font-sans flow into buttons/inputs too. */
+  input,
+  textarea,
+  button,
+  select {
+    font-family: inherit;
   }
   .fs-xs {
     --fl: -1;

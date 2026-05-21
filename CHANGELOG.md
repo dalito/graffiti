@@ -1,5 +1,26 @@
 # @drop-in/graffiti
 
+## 4.25.0
+
+### Minor Changes
+
+- Ship aesthetic preset system — five v1 presets that demonstrate Graffiti's container-scope theming. Each preset is token-dominant per ADR-0003 with focused selector rules for character treatments only. Apply via class on `:root`, `html`, or any container element; the existing theme-scope re-derivation (ADR-0006) handles re-shading inside the subtree.
+  - `theme-editorial` — magazine long-form: Fraunces serif, larger ratios, terracotta accent, ivory paper / deep ink, drop-cap opener on `.prose > p:first-of-type`.
+  - `theme-paper` — printable document feel: serif body, sepia warm dark, deep olive primary, zero radii, all shadows removed.
+  - `theme-brutalist` — raw high-contrast: pure black + white, highlighter-yellow primary, chunky 3–5px borders, hard offset (no-blur) Memphis shadows, uppercase Big Shoulders Display headings.
+  - `theme-neon-arcade` — synthwave glow: dark magenta-tinted surfaces in both color schemes, neon magenta primary + cyan accent, oklch-derived glow shadows replace the physical drop-shadow scale, Big Shoulders Display headlines with text-shadow glow.
+  - `theme-soft-consumer` — modern friendly SaaS: DM Sans, soft lavender-white / warm dark, indigo primary + pink accent, generous 4–24px radii, multi-layer soft drop shadows, slightly slowed `--d-base` / `--d-slow`.
+
+  New cascade layer: `@layer base, themes, components, utilities, layouts;` (per ADR-0003). The `themes` layer is declared in core so the order is stable whether the preset bundle is imported or not.
+
+  New `ThemeControls` font roster entries: Fraunces (variable serif) and Big Shoulders Display (variable display-condensed) — prereqs for editorial, paper, brutalist, and neon-arcade.
+
+  Distribution: import the full catalog with `@drop-in/graffiti/themes`, or tree-shake to a single preset via `@drop-in/graffiti/themes/<preset>`. Raw JS module variants exposed under `@drop-in/graffiti/themes/<preset>/raw` for build-tool integration.
+
+  Demo: `/themes` route renders the same six-surface CanonicalFixture (buttons, card, form, dialog, prose, tags) under each preset so visual deltas read against identical markup.
+
+  Small framework gap closed in passing: form elements (`input`, `textarea`, `button`, `select`) now `font-family: inherit` so preset `--font-sans` overrides flow through to controls (previously controls fell back to the browser's system UI font).
+
 ## 4.24.15
 
 ### Patch Changes
