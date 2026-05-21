@@ -11,6 +11,16 @@
     initial-value: 1rem;
   }
 
+  /* --gap is the per-component spacing knob (stack, cluster, card, etc.).
+     Inheritance leaks a parent stack's --gap into nested children that also
+     read var(--gap, …), producing surprising spacing. Reset at each box so
+     each component falls back to its own designed default. */
+  @property --gap {
+    syntax: "*";
+    inherits: false;
+    initial-value: 1rem;
+  }
+
   /* Reduced-motion opt-in: components set this to a reduced-variant
      animation; default `none` disables the animation entirely under
      `prefers-reduced-motion: reduce`. See docs/adr/0001. */
@@ -2468,7 +2478,8 @@
   .cluster {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--gap, 0.5rem);
+    --gap: 0.5rem;
+    gap: var(--gap);
     align-items: center;
     &.center {
       justify-content: center;
@@ -2602,6 +2613,11 @@
     border-radius: var(--br-l);
     box-shadow: var(--shadow-2);
     overflow: clip;
+    padding: var(--pad-l);
+    display: flex;
+    flex-direction: column;
+    --gap: var(--vs-s);
+    gap: var(--gap);
 
     @media (forced-colors: active) {
       /* The box-shadow that conveys card separation is stripped. Use a visible
@@ -2609,6 +2625,10 @@
       border: 1px solid CanvasText;
       background: Canvas;
     }
+  }
+
+  .card > * {
+    margin: 0;
   }
 
   .card.linked {
@@ -2648,22 +2668,27 @@
     }
   }
 
-  .card > :is(header, footer, .card-body, main, section) {
-    padding: var(--pad-l);
-  }
-
+  /* Direct <header>/<footer>/<img>/<picture>/<figure> children bleed
+     edge-to-edge through the card's padding via negative margins.
+     inline-size extends past the flex item's stretched cross-axis width
+     so the box itself reaches the card's padding-box edge. */
   .card > :is(header, footer) {
     display: flex;
     align-items: center;
     gap: var(--pad-s);
+    padding: var(--pad-l);
+    margin-inline: calc(-1 * var(--pad-l));
+    inline-size: calc(100% + 2 * var(--pad-l));
   }
 
   .card > header {
     border-block-end: var(--border-1);
+    margin-block-start: calc(-1 * var(--pad-l));
   }
 
   .card > footer {
     border-block-start: var(--border-1);
+    margin-block-end: calc(-1 * var(--pad-l));
   }
 
   .card > :is(header, footer) > * {
@@ -2672,8 +2697,16 @@
 
   .card > :is(img, picture, figure) {
     display: block;
-    inline-size: 100%;
-    margin: 0;
+    inline-size: calc(100% + 2 * var(--pad-l));
+    margin-inline: calc(-1 * var(--pad-l));
+  }
+
+  .card > :is(img, picture, figure):first-child {
+    margin-block-start: calc(-1 * var(--pad-l));
+  }
+
+  .card > :is(img, picture, figure):last-child {
+    margin-block-end: calc(-1 * var(--pad-l));
   }
 
   .card.featured {

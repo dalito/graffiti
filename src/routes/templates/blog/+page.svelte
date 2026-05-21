@@ -293,25 +293,19 @@ function openModal(dialog) &#123;
 				<h3>Related Articles</h3>
 				<div class="layout-card" style="--min-card-width: 200px;">
 					<a href="/templates/blog" class="card linked">
-						<div class="card-body stack">
-							<span class="tag info">CSS</span>
-							<strong>CSS Custom Properties Deep Dive</strong>
-							<span class="fs-xs text-muted">8 min read</span>
-						</div>
+						<span class="tag info">CSS</span>
+						<strong>CSS Custom Properties Deep Dive</strong>
+						<span class="fs-xs text-muted">8 min read</span>
 					</a>
 					<a href="/templates/blog" class="card linked">
-						<div class="card-body stack">
-							<span class="tag success">Design</span>
-							<strong>Design Tokens in Practice</strong>
-							<span class="fs-xs text-muted">6 min read</span>
-						</div>
+						<span class="tag success">Design</span>
+						<strong>Design Tokens in Practice</strong>
+						<span class="fs-xs text-muted">6 min read</span>
 					</a>
 					<a href="/templates/blog" class="card linked">
-						<div class="card-body stack">
-							<span class="tag warning">Components</span>
-							<strong>The State of Web Components</strong>
-							<span class="fs-xs text-muted">12 min read</span>
-						</div>
+						<span class="tag warning">Components</span>
+						<strong>The State of Web Components</strong>
+						<span class="fs-xs text-muted">12 min read</span>
 					</a>
 				</div>
 			</section>
@@ -322,14 +316,12 @@ function openModal(dialog) &#123;
 <!-- Newsletter -->
 <section class="section surface">
 	<div class="layout-readable center">
-		<div class="card newsletter">
-			<div class="card-body stack text-center" style="--gap: var(--vs-m);">
-				<h3>Stay in the loop</h3>
-				<p class="text-muted narrow center">Get weekly articles on web development, accessibility, and CSS delivered to your inbox. No spam, unsubscribe anytime.</p>
-				<div class="input-group narrow center stack-mobile">
-					<input type="email" placeholder="you@example.com" aria-label="Email address" />
-					<button class="primary">Subscribe</button>
-				</div>
+		<div class="card newsletter text-center" style="--gap: var(--vs-m);">
+			<h3>Stay in the loop</h3>
+			<p class="text-muted narrow center">Get weekly articles on web development, accessibility, and CSS delivered to your inbox. No spam, unsubscribe anytime.</p>
+			<div class="input-group narrow center stack-mobile">
+				<input type="email" placeholder="you@example.com" aria-label="Email address" />
+				<button class="primary">Subscribe</button>
 			</div>
 		</div>
 	</div>

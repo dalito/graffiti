@@ -30,10 +30,8 @@
       <h4>Launch checklist</h4>
       <span class="tag info">In review</span>
     </header>
-    <div class="card-body stack">
-      <p>Finalize the launch brief, confirm asset handoff, and schedule the team announcement.</p>
-      <p>Next review: <strong>Thursday, 2:00 PM</strong>.</p>
-    </div>
+    <p>Finalize the launch brief, confirm asset handoff, and schedule the team announcement.</p>
+    <p>Next review: <strong>Thursday, 2:00 PM</strong>.</p>
     <footer class="cluster">
       <button class="primary">Open brief</button>
       <button class="ghost">Snooze</button>

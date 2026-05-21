@@ -79,11 +79,9 @@
 					<section id="quickstart" class="stack" style="--gap: var(--vs-m);">
 						<h3>Quickstart</h3>
 						<div class="card">
-							<div class="card-body stack" style="--gap: var(--vs-s);">
-								<p class="text-muted">Install Graffiti and import the stylesheet in your SvelteKit layout:</p>
-								<pre><code>npm i @graffiti-css/drop-in
+							<p class="text-muted">Install Graffiti and import the stylesheet in your SvelteKit layout:</p>
+							<pre><code>npm i @graffiti-css/drop-in
 import '@graffiti-css/drop-in';</code></pre>
-							</div>
 						</div>
 					</section>
 

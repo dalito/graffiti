@@ -1,19 +1,38 @@
-<div class="stack" style="max-inline-size: 400px">
+<div class="layout-card" style="--min-card-width: 280px;">
+  <!-- Minimal card: no header, no footer, no body wrapper. -->
+  <article class="card">
+    <h4>Open invoices</h4>
+    <p>Three invoices are awaiting payment. The earliest is due May 1.</p>
+  </article>
+
+  <!-- Minimal card with a button. Vertical rhythm comes from the card itself. -->
+  <article class="card">
+    <h4>Weekly digest</h4>
+    <p>A summary of project activity, delivered every Friday morning.</p>
+    <button class="primary">Subscribe</button>
+  </article>
+
+  <!-- Linked card with no header. -->
+  <a class="card linked" href="/elements">
+    <h4>Documentation overview</h4>
+    <p>Browse every Graffiti element and pattern in one place.</p>
+  </a>
+
+  <!-- Card with header + footer. Use only when you need a divided bar. -->
   <article class="card">
     <header>
       <h4>Invoice overview</h4>
       <span class="tag">April</span>
     </header>
-    <div class="card-body stack">
-      <p>Track the current billing cycle and open items at a glance.</p>
-      <p><strong>$2,480</strong> due on May 1.</p>
-    </div>
+    <p>Track the current billing cycle and open items at a glance.</p>
+    <p><strong>$2,480</strong> due on May 1.</p>
     <footer class="cluster">
       <button class="primary">Pay now</button>
       <button>Download PDF</button>
     </footer>
   </article>
 
+  <!-- Card with edge-to-edge media at the top. -->
   <article class="card">
     <figure>
       <img
@@ -21,28 +40,8 @@
         alt="Abstract landscape illustration"
       />
     </figure>
-    <header>
-      <h4>Launch checklist</h4>
-      <span class="tag muted">Design</span>
-    </header>
-    <div class="card-body stack">
-      <p>Finalize assets, confirm handoff, and prepare the launch brief.</p>
-      <p>Next review: Thursday, 2:00 PM.</p>
-    </div>
-    <footer class="cluster">
-      <button>View details</button>
-      <button class="ghost">Share</button>
-    </footer>
+    <h4>Launch checklist</h4>
+    <p>Finalize assets, confirm handoff, and prepare the launch brief.</p>
+    <p>Next review: Thursday, 2:00 PM.</p>
   </article>
-
-  <a class="card linked" href="/elements">
-    <header>
-      <h4>Documentation overview</h4>
-      <span class="tag info">Explore</span>
-    </header>
-    <div class="card-body stack">
-      <p>Use linked cards for clickable previews, nav lists, and feature rows.</p>
-      <p>Open the Elements docs to browse all component patterns.</p>
-    </div>
-  </a>
 </div>

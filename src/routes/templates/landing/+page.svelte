@@ -120,45 +120,39 @@
 			</p>
 		</div>
 		<div class="layout-three-col">
-			<article class="card">
-				<div class="card-body stack" style="--gap: var(--vs-m);">
-					<p style="color: var(--fg-7);">
-						"We cut our deploy times from 12 minutes to 6 seconds. Our team ships 3x more PRs per week now because the feedback loop is so tight."
-					</p>
-					<div class="cluster">
-						<div class="avatar auto-color" style="--bg-color: var(--purple);">SK</div>
-						<div class="stack" style="--gap: var(--vs-xs);">
-							<p class="no-margin"><strong>Sarah Kim</strong></p>
-							<p class="fs-xs text-muted no-margin">VP Engineering, Lattice</p>
-						</div>
+			<article class="card" style="--gap: var(--vs-m);">
+				<p style="color: var(--fg-7);">
+					"We cut our deploy times from 12 minutes to 6 seconds. Our team ships 3x more PRs per week now because the feedback loop is so tight."
+				</p>
+				<div class="cluster">
+					<div class="avatar auto-color" style="--bg-color: var(--purple);">SK</div>
+					<div class="stack" style="--gap: var(--vs-xs);">
+						<p class="no-margin"><strong>Sarah Kim</strong></p>
+						<p class="fs-xs text-muted no-margin">VP Engineering, Lattice</p>
 					</div>
 				</div>
 			</article>
-			<article class="card">
-				<div class="card-body stack" style="--gap: var(--vs-m);">
-					<p style="color: var(--fg-7);">
-						"The preview environments alone justified the switch. Our design team reviews every PR in context now, and we catch issues before they hit production."
-					</p>
-					<div class="cluster">
-						<div class="avatar auto-color" style="--bg-color: var(--teal);">MR</div>
-						<div class="stack" style="--gap: var(--vs-xs);">
-							<p class="no-margin"><strong>Marcus Rivera</strong></p>
-							<p class="fs-xs text-muted no-margin">CTO, Streamline</p>
-						</div>
+			<article class="card" style="--gap: var(--vs-m);">
+				<p style="color: var(--fg-7);">
+					"The preview environments alone justified the switch. Our design team reviews every PR in context now, and we catch issues before they hit production."
+				</p>
+				<div class="cluster">
+					<div class="avatar auto-color" style="--bg-color: var(--teal);">MR</div>
+					<div class="stack" style="--gap: var(--vs-xs);">
+						<p class="no-margin"><strong>Marcus Rivera</strong></p>
+						<p class="fs-xs text-muted no-margin">CTO, Streamline</p>
 					</div>
 				</div>
 			</article>
-			<article class="card">
-				<div class="card-body stack" style="--gap: var(--vs-m);">
-					<p style="color: var(--fg-7);">
-						"We migrated 40 microservices in a weekend. The zero-config detection nailed every single one. I've never seen an infra migration go that smoothly."
-					</p>
-					<div class="cluster">
-						<div class="avatar auto-color" style="--bg-color: var(--orange);">JL</div>
-						<div class="stack" style="--gap: var(--vs-xs);">
-							<p class="no-margin"><strong>Jenna Liu</strong></p>
-							<p class="fs-xs text-muted no-margin">Staff Engineer, Raycast</p>
-						</div>
+			<article class="card" style="--gap: var(--vs-m);">
+				<p style="color: var(--fg-7);">
+					"We migrated 40 microservices in a weekend. The zero-config detection nailed every single one. I've never seen an infra migration go that smoothly."
+				</p>
+				<div class="cluster">
+					<div class="avatar auto-color" style="--bg-color: var(--orange);">JL</div>
+					<div class="stack" style="--gap: var(--vs-xs);">
+						<p class="no-margin"><strong>Jenna Liu</strong></p>
+						<p class="fs-xs text-muted no-margin">Staff Engineer, Raycast</p>
 					</div>
 				</div>
 			</article>
@@ -177,70 +171,64 @@
 		</div>
 		<div class="layout-three-col" style="align-items: stretch;">
 			<!-- Free Tier -->
-			<article class="card">
+			<article class="card" style="--gap: var(--vs-m);">
 				<header>
 					<h3>Hobby</h3>
 				</header>
-				<div class="card-body stack" style="--gap: var(--vs-m);">
-					<p class="no-margin"><strong class="fs-xl">$0</strong> <span class="text-muted">/ month</span></p>
-					<p class="text-muted">Perfect for side projects and personal sites.</p>
-					<ul class="stack" style="--gap: var(--vs-s); padding-left: 1.25em;">
-						<li>3 projects</li>
-						<li>100 GB bandwidth</li>
-						<li>Automatic SSL</li>
-						<li>Community support</li>
-						<li>Preview environments</li>
-					</ul>
-				</div>
+				<p class="no-margin"><strong class="fs-xl">$0</strong> <span class="text-muted">/ month</span></p>
+				<p class="text-muted">Perfect for side projects and personal sites.</p>
+				<ul class="stack" style="--gap: var(--vs-s); padding-left: 1.25em;">
+					<li>3 projects</li>
+					<li>100 GB bandwidth</li>
+					<li>Automatic SSL</li>
+					<li>Community support</li>
+					<li>Preview environments</li>
+				</ul>
 				<footer>
 					<a href="#" class="button ghost full">Get Started Free</a>
 				</footer>
 			</article>
 
 			<!-- Pro Tier (Highlighted) -->
-			<article class="card featured gradient-surface">
+			<article class="card featured gradient-surface" style="--gap: var(--vs-m);">
 				<header>
 					<h3>Pro</h3>
 					<span class="tag" style="margin-inline-start: auto;">Popular</span>
 				</header>
-				<div class="card-body stack" style="--gap: var(--vs-m);">
-					<p class="no-margin"><strong class="fs-xl">$20</strong> <span class="text-muted">/ month per seat</span></p>
-					<p class="text-muted">For growing teams that need speed and reliability.</p>
-					<ul class="stack" style="--gap: var(--vs-s); padding-left: 1.25em;">
-						<li>Unlimited projects</li>
-						<li>1 TB bandwidth</li>
-						<li>Automatic SSL</li>
-						<li>Priority support</li>
-						<li>Preview environments</li>
-						<li>Custom domains</li>
-						<li>Team permissions</li>
-						<li>Analytics dashboard</li>
-					</ul>
-				</div>
+				<p class="no-margin"><strong class="fs-xl">$20</strong> <span class="text-muted">/ month per seat</span></p>
+				<p class="text-muted">For growing teams that need speed and reliability.</p>
+				<ul class="stack" style="--gap: var(--vs-s); padding-left: 1.25em;">
+					<li>Unlimited projects</li>
+					<li>1 TB bandwidth</li>
+					<li>Automatic SSL</li>
+					<li>Priority support</li>
+					<li>Preview environments</li>
+					<li>Custom domains</li>
+					<li>Team permissions</li>
+					<li>Analytics dashboard</li>
+				</ul>
 				<footer>
 					<a href="#" class="button primary full">Start Free Trial</a>
 				</footer>
 			</article>
 
 			<!-- Enterprise Tier -->
-			<article class="card">
+			<article class="card" style="--gap: var(--vs-m);">
 				<header>
 					<h3>Enterprise</h3>
 				</header>
-				<div class="card-body stack" style="--gap: var(--vs-m);">
-					<p class="no-margin"><strong class="fs-xl">Custom</strong></p>
-					<p class="text-muted">For organizations with advanced security and compliance needs.</p>
-					<ul class="stack" style="--gap: var(--vs-s); padding-left: 1.25em;">
-						<li>Everything in Pro</li>
-						<li>Unlimited bandwidth</li>
-						<li>SSO / SAML</li>
-						<li>Dedicated support engineer</li>
-						<li>SLA guarantee (99.99%)</li>
-						<li>SOC 2 Type II report</li>
-						<li>Custom contracts</li>
-						<li>On-premise option</li>
-					</ul>
-				</div>
+				<p class="no-margin"><strong class="fs-xl">Custom</strong></p>
+				<p class="text-muted">For organizations with advanced security and compliance needs.</p>
+				<ul class="stack" style="--gap: var(--vs-s); padding-left: 1.25em;">
+					<li>Everything in Pro</li>
+					<li>Unlimited bandwidth</li>
+					<li>SSO / SAML</li>
+					<li>Dedicated support engineer</li>
+					<li>SLA guarantee (99.99%)</li>
+					<li>SOC 2 Type II report</li>
+					<li>Custom contracts</li>
+					<li>On-premise option</li>
+				</ul>
 				<footer>
 					<a href="#" class="button ghost full">Contact Sales</a>
 				</footer>
