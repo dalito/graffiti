@@ -1,7 +1,8 @@
 {
   "author": "Scott Tolinski",
   "bin": {
-    "graffiti": "bin.js"
+    "graffiti": "bin.js",
+    "graffiti-lookup": "scripts/graffiti-lookup.mjs"
   },
   "description": "A dope package to theme @drop-in",
   "exports": {
@@ -56,6 +57,7 @@
     "generate:agent-docs": "node scripts/generate-agent-docs.mjs",
     "lint:graffiti": "node scripts/graffiti-lint.mjs",
     "lint:graffiti:check": "node scripts/graffiti-lint.mjs --check",
+    "lookup": "node scripts/graffiti-lookup.mjs",
     "package": "node scripts/derive-mirror.mjs && svelte-kit sync && svelte-package && node build-modules.js"
   },
   "type": "module",
